@@ -1,0 +1,33 @@
+<!-- form data based on masking  -->
+<form class="form-signin" [formGroup]="testForm">   
+  <h1 class="h3 mb-3 font-weight-normal">Mask Data</h1>
+  <label class="sr-only">ATM</label>
+  <input type="text" formControlName="atm" class="form-control" placeholder="ATM" [hiddenInput]="true" mask="XXX-XX-0000">
+  <br />
+  <label class="sr-only">Mobile</label>
+  <input type="text" formControlName="mobile" class="form-control" placeholder="MOBILE" [hiddenInput]="true" mask="XXXXXXXX00">
+  <br />
+  <label class="sr-only">DOB</label>
+  <input type="text" formControlName="dob" class="form-control" placeholder="DOB" [hiddenInput]="true" mask="00/00/XXXX">
+  <br />
+  <label class="sr-only">Mix</label>
+  <input type="text" formControlName="pancard" class="form-control" placeholder="Pancard" [hiddenInput]="true"
+    mask="AAAAAXXXX">
+  <br />
+  <label class="sr-only">Date</label>
+  <input type="text" formControlName="date" class="form-control" placeholder="DATE" prefix="+91 " mask="(000) 000 00 00">
+  <br />
+  <label class="sr-only">Decimal No</label>
+  <input type="text" formControlName="decNo" class="form-control" placeholder="Decimal No" mask="0*.00">
+  <br />
+  <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onSubmit(testForm.value);formSubmit = true;">Submit</button>
+  <ng-container *ngIf="formSubmit">
+    <p>ATM : {{displayData.atm}}</p>
+    <p>Mobile : {{displayData.mobile}}</p>
+    <p>DOB : {{displayData.dob}}</p>
+    <p>Mix : {{displayData.pancard}}</p>
+    <p>Date : {{displayData.date}}</p>
+    <p>Decimal No : {{displayData.decNo}}</p>
+  </ng-container>
+</form>
+<!-- / form-closed -->
